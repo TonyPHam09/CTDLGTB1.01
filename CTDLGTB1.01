@@ -1,0 +1,37 @@
+#include<stdio.h>
+
+void nhapmang(int a[], int &n) {
+	n = 0;
+	int y;
+    printf("nhap mang (nhap 0 de dung) : ");
+	do {
+		scanf("%d", &y);
+		if (y != 0)
+			a[n++] = y;
+	} while(y != 0);
+}
+
+void xuatmang(int a[], int n) {
+    for(int i = 0; i < n; i++) {
+        printf("%3d", a[i]);
+    }
+}
+
+int TongChan(int a[], int n) {
+    if(n==0)
+    return 0;
+    float s = TongChan(a, n-1);
+    if(a[n-1]%2==0)
+    return s = s + a[n-1];
+    return s;
+}
+
+int main() {
+    int n = 0;
+    int a[n];
+    nhapmang(a,n);
+    printf("\nmang vua nhap: ");
+    xuatmang(a,n);
+    int s = TongChan(a,n);
+    printf("\nket qua: %d",s);
+}
